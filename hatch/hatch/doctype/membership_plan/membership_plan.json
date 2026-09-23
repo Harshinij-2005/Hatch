@@ -2,6 +2,7 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
+ "autoname": "field:plan_name",
  "creation": "2026-09-22 15:16:21.126130",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -18,7 +19,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Plan Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "monthly_fee",
@@ -44,10 +46,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-22 15:40:03.994631",
+ "modified": "2026-09-23 12:39:58.690323",
  "modified_by": "Administrator",
  "module": "Hatch",
  "name": "Membership Plan",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
