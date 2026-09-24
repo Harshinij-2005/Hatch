@@ -6,10 +6,10 @@ from frappe.model.document import Document
 
 
 class Resource(Document):
-   def on_update(self):
-       hours = frappe.db.get_value(
-        "Hatch Settings",
-        None,
-        "pending_confirmation_expiry_hours"
-    )
-    print(hours)
+    def on_update(self):
+        hours = frappe.db.get_value(
+            "Hatch Settings",
+            None,
+            "pending_confirmation_expiry_hours"
+        )
+        print(hours)

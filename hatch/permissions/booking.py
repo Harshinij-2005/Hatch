@@ -5,6 +5,9 @@ def get_permission_query_conditions(user):
     if not user:
         user = frappe.session.user
 
+    if user == "Administrator" or "System Manager" in frappe.get_roles(user):
+        return ""
+
     if "Hatch Member" in frappe.get_roles(user):
         return """`tabBooking`.`member` IN (
             SELECT `name`

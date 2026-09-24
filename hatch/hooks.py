@@ -246,9 +246,17 @@ app_license = "mit"
 
 # Automatically update python controller files with type annotations for this app.
 
-after_install = "hatch.install.after_install"
 
 
 permission_query_conditions = {
     "Booking": "hatch.permissions.booking.get_permission_query_conditions"
 }
+after_install = "hatch.after_install.after_install"
+
+# doc_events = {
+#     "*": {
+#         "on_update": "hatch.hatch.audit.log_change",
+#         "on_submit": "hatch.hatch.audit.log_change",
+#         "on_cancel": "hatch.hatch.audit.log_change",
+#     }
+# }

@@ -47,3 +47,24 @@ def rename_member(old_name, new_name):
 
 If we use merge=true then pre existing records will link to current 
 records and create confusion
+
+H1 — Booking Form Script
+
+The live availability check is triggered when the user changes the resource, booking date, start time, or end time.
+
+This check should not be performed inside the client-side `validate` event by treating `frappe.call` as a synchronous operation.
+
+`frappe.call` is asynchronous. The browser sends the request to the server and continues executing JavaScript. The server response becomes available later through the callback or Promise. Therefore, the response cannot be used immediately as if the server call had already completed.
+
+The `validate` event is part of the save or submit process. Live availability is a UX preview that should be shown while the user is entering or changing booking details.
+
+Therefore, the availability check is placed in field-change handlers for:
+
+- `resource`
+- `booking_date`
+- `start_time`
+- `end_time`
+
+Whenever one of these values changes, the client calls the whitelisted server method `get_live_availability` and displays the current availability.
+
+The live availability message is only a UX preview. It does not replace the server-side capacity validation because availability can change between the preview and the actual save or submit operation. The server-side validation remains the final authority.
