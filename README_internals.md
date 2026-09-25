@@ -68,3 +68,19 @@ Therefore, the availability check is placed in field-change handlers for:
 Whenever one of these values changes, the client calls the whitelisted server method `get_live_availability` and displays the current availability.
 
 The live availability message is only a UX preview. It does not replace the server-side capacity validation because availability can change between the preview and the actual save or submit operation. The server-side validation remains the final authority.
+
+
+Group I-Reports
+
+F-string:-
+
+```python
+query = f"SELECT * FROM `tabBooking` WHERE booking_date >= '{today}'"
+```
+Parameterized:-
+```python
+query = "SELECT * FROM `tabBooking` WHERE booking_date >= %(today)s"
+frappe.db.sql(query, {"today": today})
+```
+Parameterized queries are safer because values are passed separately from the SQL. They help prevent SQL injection and handle dynamic values properly.
+
