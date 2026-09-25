@@ -1,0 +1,9 @@
+{
+  "doctype": "Report",
+  "name": "Resource Utilization",
+  "ref_doctype": "Booking",
+  "report_type": "Script Report",
+  "is_standard": "Yes",
+  "module": "Hatch"
+}
+
